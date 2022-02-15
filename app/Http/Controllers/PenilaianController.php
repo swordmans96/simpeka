@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Divisi;
+use App\Models\Jabatan;
 
 class PenilaianController extends Controller
 {
@@ -23,7 +25,9 @@ class PenilaianController extends Controller
      */
     public function index()
     {
-        return view("pages.laporanpenilaian");
+        $divisi = Divisi::all();
+        $jabatan = Jabatan::all();
+        return view("pages.penilaian", compact('divisi', 'jabatan'));
     }
 
     /**
